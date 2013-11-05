@@ -46,11 +46,12 @@ dex_include_files := \
 ##
 ifneq ($(SDK_ONLY),true)  # SDK_only doesn't need device version
 
+include $(CLEAR_VARS)
+
 ifneq ($(TARGET_BUILD_VARIANT),user)
 LOCAL_CFLAGS += -DALLOW_DEXROOT_ON_CACHE
 endif
 
-include $(CLEAR_VARS)
 #LOCAL_CFLAGS += -UNDEBUG -DDEBUG=1
 ifneq ($(findstring -O3, $(TARGET_GLOBAL_CFLAGS)),)
 # Workaround for https://bugs.launchpad.net/linaro-android/+bug/948255
